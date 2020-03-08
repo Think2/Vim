@@ -2,8 +2,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'vim-scripts/taglist.vim'
 Plug 'wesleyche/trinity'
-Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
 Plug 'altercation/vim-colors-solarized'
+"Plug 'kien/ctrlp.vim'
+Plug 'yggdroot/leaderf'
 call plug#end()
 
 "-----------------------------------------------
@@ -65,6 +67,14 @@ let NERDTreeWinPos="right"
 "  当打开 NERDTree 窗口时，自动显示 Bookmarks
 let NERDTreeShowBookmarks=1
 " 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）
+
+
+"-----------------------------------------------
+" config  ctrlp
+"
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 
 
 
