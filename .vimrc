@@ -2,11 +2,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'vim-scripts/taglist.vim'
 Plug 'wesleyche/trinity'
-"Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 Plug 'altercation/vim-colors-solarized'
-"Plug 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'yggdroot/leaderf'
+Plug 'easymotion/vim-easymotion'
+"Plug 'scrooloose/syntastic'
+Plug 'mhinz/vim-startify'
+Plug 'yggdroot/indentline'
+Plug 'w0ng/vim-hybrid'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-smooth-scroll'
 call plug#end()
+
+
+"----------------------------------------------
+"----------configs key map----------------------------
+let mapleader=" "
 
 "-----------------------------------------------
 
@@ -59,7 +72,9 @@ endif
 
 " 设置NerdTree
 map <F3> :NERDTreeMirror<CR>
-map <C-n> :NERDTreeToggle<CR>
+map <c-n> :NERDTreeToggle<CR>
+map <leader>v :NERDTreeFind<CR>
+map <leader>m :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 将 NERDTree 的窗口设置在 vim 窗口的右侧（默认为左侧）
@@ -75,8 +90,31 @@ let NERDTreeShowBookmarks=1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+"-----------------------------------------------
+" config  syntastic
+"
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 
+"-----------------------------------------------
+" config  easy-motion 
+nmap <leader>s <Plug>(easymotion-s2)
+
+
+
+"-----------------------------------------------
+" config smooth_scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 " ------------------------------------configs--------------------------------------------
 set nocompatible
@@ -87,7 +125,7 @@ syntax on "配色
 syntax enable "语法高亮
 " 设置取消备份，禁止临时文件生成  
 set nobackup
-"set noswapfile
+set noswapfile
 
 " 设置C/C++方式自动对齐  
 set autoindent
@@ -107,9 +145,12 @@ set ignorecase
 set smartcase
 set incsearch
 
+set backspace=indent,eol,start
 
 filetype on "检测文件类型
 filetype indent on "针对不同文件采用不同的缩进方式
-"filetype plugin on "允许插件
-"set showmatch "设置代码匹配，包括括号匹配情况
+filetype plugin on "允许插件
+set showmatch "设置代码匹配，包括括号匹配情况
+
+"----------configs key map----------------------------
 
