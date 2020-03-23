@@ -116,6 +116,30 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
+"-----------------------------------------------
+" config leaderf 
+let g:Lf_WindowHeight=0.3
+let g:Lf_MruFileExclude = ['*.so','.git']
+let g:Lf_CtagsFuncOpts = {
+                        \ 'c': '--c++-kinds=+p --fields=+iaS --extra=+q' 
+                        \ }
+let g:Lf_PreviewCode = 1
+let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_GtagsSkipUnreadable = 1
+let g:Lf_GtagsSkipSymlink = 'a'
+"let Lf_WindowPosition = 'popup'
+"let g:Lf_PreviewInPopup = 1
+"let g:Lf_PopupHeight = 0.75
+"let g:Lf_PopupHeight = 0.75
+nmap <leader>ff :LeaderfFile<CR>
+nmap <leader>fb :LeaderfBuffer<CR>
+nmap <leader>fm :LeaderfMru<CR>
+nmap <leader>ft :LeaderfTag<CR>
+nmap <leader>fd :LeaderfFunction<CR>
+nmap <leader>fh :LeaderfHistorySearch<CR>
+
+"nmap <leader>fr <Plug>LeaderfRgPrompt <cword><CR>
+nmap <leader>fr <Plug>LeaderfRgCwordLiteralNoBoundary<CR>
 " ------------------------------------configs--------------------------------------------
 set nocompatible
 
