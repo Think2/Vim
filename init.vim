@@ -1,7 +1,7 @@
 " =============================================================================
 " vim-plug插件管理
 " =============================================================================
-call plug#begin('~/.nvim/plug')
+call plug#begin('~/.vim/plug')
 
 " myself plugs-----------begin-------
 Plug 'scrooloose/nerdcommenter'
@@ -11,8 +11,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'yggdroot/indentline'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'mhinz/vim-startify'
-Plug 'vim-scripts/ctags.vim'
-Plug 'neoclide/coc.nvim'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'lfv89/vim-interestingwords'
@@ -27,7 +26,7 @@ endif
 " -----------------------end---------
 
 " vim中文帮助手册
-Plug 'yianwillis/vimcdoc'
+"Plug 'yianwillis/vimcdoc'
 " C++语法高亮增强
 Plug 'octol/vim-cpp-enhanced-highlight'
 " 最近打开的文件维护插件
@@ -99,7 +98,7 @@ endfunction
 " 生成GTAGS数据库文件快捷键
 "nmap <leader>gg :call RunShell("Generate GTAGS.*", 'find . -name "*.[chsS]" -o -name "*.cpp" -o -name "*.cc" -o -name "*.C", -o -name "*.cxx"> gtags.files && gtags')<cr>
 " 生成tags文件快捷键 
-nmap <leader>gt :call RunShell("Generate tags", "ctags -R --c-kinds=+lpxzL --c++-kinds=+lpxzLANU --fields=+niazS --extras=+q --output-format=e-ctags")<cr>
+nmap <leader>gt :call RunShell("Generate tags", "ctags -R --c-kinds=+lpx --fields=+niazS --extra=+q")<cr>
 " 生成cscope数据库文件快捷键 
 "nmap <leader>gc :call RunShell("Generate cscope.*", 'find `pwd` -name "*.[chsS]" -o -name "*.cpp" -o -name "*.cc" -o -name "*.C", -o -name "*.cxx"> cscope.files && cscope -bkq')<cr>
 
@@ -147,10 +146,6 @@ nmap <leader>fm :LeaderfMru<CR>
 nmap <leader>fi <Plug>LeaderfRgPrompt
 nmap <leader>fr <Plug>LeaderfRgCwordLiteralNoBoundary<CR>
 
-"nmap <leader>fa <Plug>LeaderfGtagsDefinition              
-"nmap <leader>fq <Plug>LeaderfGtagsReference               
-"nmap <leader>fs <Plug>LeaderfGtagsSymbol                 
-"nmap <leader>fg <Plug>LeaderfGtagsGrep                  
 "--------------self end---------------------------------
 
 " mru.vim
@@ -269,7 +264,7 @@ let NERDTreeHightCursorline=1
 "            " 加载GTAGS
 "            execute 'silent cs add ' . g:gtpath . '/GTAGS'
 "            " 保存文件后自动更新GTAGS
-"            "autocmd BufWritePost * call UpdateGtags(expand('<afile>'))
+"            autocmd BufWritePost * call UpdateGtags(expand('<afile>'))
 "        else
 "            execute 'silent GscopeKill'
 "        endif
@@ -279,7 +274,7 @@ let NERDTreeHightCursorline=1
 "        " 自动命令查找结果不使用quickfix窗口
 "        " autocmd BufReadPost * set cscopequickfix=""
 "        " 保存文件后自动更新GTAGS
-"        "autocmd BufWritePost * call UpdateCsdb(g:cspath)
+"        autocmd BufWritePost * call UpdateCsdb(g:cspath)
 "        " 加载cscope.out
 "    	set nocsverb
 "		execute 'cs add ' . s:csfile
@@ -463,6 +458,9 @@ set incsearch           " 查找输入时,每输入一个字符,自动跳转到�
 set ignorecase          " 查找时忽略大小写
 set smartcase           " 针对只有首字母时大写的查找词不忽略大小写
 
+set fencs=utf-8,gbk,gb2312,gb18030
+"------------cmd-------------------------------
+"autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 "--------------keys map--------------------------
 inoremap <Leader>q <Esc><Esc>
@@ -470,8 +468,8 @@ inoremap <silent> <C-h> <Left>
 inoremap <silent> <C-j> <Down>
 inoremap <silent> <C-k> <Up>
 inoremap <silent> <C-l> <Right>
-inoremap <C-i> <Esc>o
+inoremap <C-o> <Esc>o
 
-nnoremap <silent> <leader>. :cd %:p:h<CR>
+nnoremap <silent> <leader>l :cd %:p:h<CR>
 nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
 nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
