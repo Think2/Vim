@@ -23,6 +23,7 @@ else
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+Plug 'rkulla/pydiction'
 " -----------------------end---------
 
 " vim中文帮助手册
@@ -362,6 +363,10 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 
 
+" 设置 pydiction
+let g:pydiction_location = 'C:\\Users\\Administrator\\.vim\\plug\\pydiction\\complete-dict'
+let g:pydiction_menu_height = 3
+
 
 " =============================================================================
 " 编码相关
@@ -463,7 +468,7 @@ set fencs=utf-8,gbk,gb2312,gb18030
 "autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 "--------------keys map--------------------------
-inoremap <Leader>q <Esc><Esc>
+"inoremap <Leader>q <Esc><Esc>
 inoremap <silent> <C-h> <Left>
 inoremap <silent> <C-j> <Down>
 inoremap <silent> <C-k> <Up>
